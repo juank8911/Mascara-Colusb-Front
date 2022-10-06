@@ -1,0 +1,22 @@
+.l-header {
+  padding: 38px 0px;
+  background-color: #fff;
+}
+
+.hidden-logo{
+  display: none;
+}
+.mat-progress-bar-fill::after {
+  background-color: #FFED00;
+}
+mat-progress-bar{
+  ::ng-deep{
+      .mat-progress-bar-primary, .mat-progress-bar-fill, 
+      .mat-progress-bar-element::after {
+      background-color: #FFED00;
+      }
+  }
+}
+.mat-progress-bar {
+  height: 8px;
+}

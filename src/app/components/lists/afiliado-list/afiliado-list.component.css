@@ -1,0 +1,14 @@
+.barCol{
+  background-color: #FFED00;
+}
+
+.card
+{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.card-header
+{
+  background-color: #0067b1;
+  color: white;
+}

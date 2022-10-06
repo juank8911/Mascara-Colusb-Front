@@ -1,0 +1,25 @@
+.l {
+  &-dashboard {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "header" "content" "footer";
+  }
+
+  &-content {
+    grid-area: content;
+    background-color: $blueLight;
+  }
+
+  &-content-sec {
+    grid-area: content;
+    background-color: $blueLight;
+  }
+
+  &-footer {
+    grid-area: footer;
+    background-color: $white;
+    font-size: $size12;
+  }
+}

@@ -1,0 +1,185 @@
+.separador-b {
+  padding: 5px;
+}
+.separador-c {
+  padding: 10px;
+}
+.separador-k {
+  padding: 18px;
+}
+.texto_boton-siguiente {
+  background-color: #ffffff;
+  border-style: none;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: -0.25px;
+  color: #00005B;
+  margin-right: 10px;
+  cursor: pointer;
+
+}
+.boton_siguiente-azul {
+  background: #00005B;
+  width: 24px;
+  height: 24px;
+  border-radius: 38px;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.boton_prev-azul {
+  background: #ffffff;
+  width: 24px;
+  height: 24px;
+  border-radius: 38px;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.title-form{
+  //background-color: aqua;
+  text-align: center;
+  .logo-form {
+      width: 50px;
+      display: block;
+      margin: initial;
+      padding-bottom: 10px
+  }
+}
+
+h1 {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 42px;
+  text-align: center;
+  color: #333;
+}
+
+.title-form p {
+  font-style: normal;
+  font-weight: 300;
+  line-height: 25px;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.25px;
+  font-size: 16px;
+  background: linear-gradient(#606060,#606060);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.txt-p{
+  font-style: normal;
+  font-weight: 300;
+  line-height: 25px;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.25px;
+  font-size: 16px;
+  background: linear-gradient(#606060,#606060);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.contenedor{
+  width: auto;
+  //background-color:aqua;
+  ::ng-deep{
+      mat-form-field{
+          width: 350px;
+      }
+
+  }
+}
+
+.btn-forms{
+  background-color: #001f5b;
+  color: #fff;
+  padding-left: 90px;
+  padding-right: 90px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  //padding: 80px;
+}
+
+.cont-radios{
+  //width: auto;
+  box-sizing: border-box;
+  .mat-radio-button{
+      ::ng-deep{
+          .mat-radio-outer-circle,.mat-radio-inner-circle,.mat-radio-container{
+              display: none;
+          }
+          .mat-radio-label-content{
+              box-sizing: border-box;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              box-shadow: 0px 3px 13px rgb(0 0 0 / 18%);
+              padding: 15px 148px 8px 21px;
+              height: 70px;
+              width: 365px;
+              border-radius: 11px;
+          }
+          .mat-radio-label-content:hover{
+              //border-color: #00005b;
+              border: solid #00005b;
+              //border-width: revert;
+              //overflow:hidden;
+          }
+      }
+  }
+
+  .mat-radio-checked::after{
+      content: url('~src/assets/images/check-blue.svg');
+      position: relative;
+      top: -40px;
+      left: 92%;
+      width: auto;
+      box-sizing: border-box;
+      //background-color: aqua;
+      display: table;
+      //display: none;
+  }
+}
+
+.subtitulos-form{
+  font-style: normal;
+  font-weight: 300;
+  line-height: 25px;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.25px;
+  font-size: 16px;
+  background: linear-gradient(#606060, #606060);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.material-icons.red600 { color: #fb0000; }
+
+mat-form-field {
+  ::ng-deep{
+      input:not(.mail){
+          text-transform: uppercase;
+      }
+  }
+}
+
+button:disabled{
+  background-color:#cbd0e9;
+}
+
+.vla-msg-radio{
+  color: #f44336;
+}
+
+.readonly_bold{
+  font-weight: bold;
+}

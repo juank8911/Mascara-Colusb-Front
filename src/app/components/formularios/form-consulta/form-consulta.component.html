@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <form class="row g-3" [formGroup]="form" (ngSubmit)="myFunc($event)">
+        <div class="col-md-3">
+        <label for="validationServer01" class="form-label">Tipo Consulta:</label>
+        </div>
+      <div class="col-md-8">
+        <!-- <div *ngFor="let chek of checks">
+          <p>{{chek.id}}</p>
+        </div> -->
+      <div class="form-check form-check-inline" *ngFor="let cons of checks">
+        <input class="form-check-input" type="radio" name="tipoCons" id={{cons.id}} formControlName="tipoCons" value={{cons.value}} >
+        <label class="form-check-label" for="tipoCons">
+          {{cons.labl}}
+        </label>
+    </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-floating">
+    <select class="form-select" id="tipoDoc" formControlName="tipoDoc" aria-label="Tipo de documento">
+            <option Value="CO1C">Cédula de ciudadanía </option>
+            <option Value="CO1T">Tarjeta identidad    </option>
+            <option Value="CO1L">Registro civil       </option>
+            <option Value="CO1P">Pasaporte            </option>
+            <option Value ="CO1N">Nit                 </option>
+            <option Value ="CO1D">Carnet diplomatico  </option>
+      </select>
+        <label for="tipoDoc">Tipo de identificacion</label>
+      </div>
+      </div>
+      <div class="col-md-8">
+
+        <div class="form-floating mb-3">
+          <input type="number" maxlength="10" formControlName="numDoc" class="form-control" name="numDoc" id="numDoc" placeholder="1234567890" aria-describedby="validationServer03Feedback">
+          <label for="numDoc">Numero de identificacion</label>
+          <!-- <div id="validationServer03Feedback" class="invalid-feedback">
+            el numero de identificacion no se encuentra como afiliado.
+          </div> -->
+        </div>
+      </div>
+      <div class="col-12">
+      </div>
+<div class="col-12">
+      <button class="btn btn-primary btn-clor" type="submit">
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="buscar == true"></span>
+        Buscar
+      </button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<app-afiliado-list *ngIf="buscar==true && afiliado == true"> </app-afiliado-list>
+<app-empresa-list *ngIf="buscar==true && afiliado == false"> </app-empresa-list>

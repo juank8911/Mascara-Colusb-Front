@@ -1,0 +1,160 @@
+// ========== Variables ==========
+//Colors
+$grayDark: #333333;
+$grayMedium: #757575;
+$grayRegular: #d6d6d6;
+$grayLight: #e6e6e6;
+$gray: #f7f7f7;
+$grayDisabled: #d6d6d6;
+$grayShadow: #e2e8ee;
+$blueDark: #0067B1;
+$blueMedium: #009DD6;
+$blueLight: #fafbfd;
+$red: #CB061D;
+$green: #27AE60;
+$pink: #F2609E;
+$black: #000000;
+$white: #ffffff;
+$yellow: #ffed00;
+
+//Gradient
+$blueDarkGradient: 89.7deg, #4651c7 8.24%, #000fbe 109.7%;
+$blueMediumGradient: 109.8deg, #79c2dd 0%, #009dd6 100%;
+$yellowGradient: 109.8deg, #f7c844 0%, #fced4f 100%;
+
+//Fonts
+$sourceSans: 'source-sans', sans-serif;
+$sourceSansLight: 'source-sans-light', sans-serif;
+$sourceSansBold: 'source-sans-bold', sans-serif;
+$sourceSansSemiBold: 'source-sans-semi-bold', sans-serif;
+$robotoCondensed: 'Roboto Condensed', sans-serif;
+
+//Sizes
+$size5: 5px;
+$size10: 10px;
+$size12: 12px;
+$size14: 14px;
+$size16: 16px;
+$size18: 18px;
+$size20: 20px;
+$size26: 26px;
+$size25: 25px;
+$size24: 24px;
+$size30: 30px;
+$size32: 32px;
+$size36: 36px;
+
+//Font weight
+$weight700: 700;
+$weight600: 600;
+$weight400: 400;
+$weight300: 300;
+$weight200: 200;
+
+//Margin
+$m60: 60px;
+$m46: 46px;
+$m36: 36px;
+$m32: 32px;
+$m28: 28px;
+$m26: 26px;
+$m18: 18px;
+$m12: 12px;
+$m8: 8px;
+$m6: 6px;
+
+//Padding
+$p70: 70px;
+$p60: 60px;
+$p42: 42px;
+$p36: 36px;
+$p32: 32px;
+$p30: 30px;
+$p24: 24px;
+$p22: 22px;
+$p20: 20px;
+$p18: 18px;
+$p16: 16px;
+$p14: 14px;
+$p12: 12px;
+$p5: 5px;
+
+//BreakPoints
+$breakpoints-min : (
+  xs-small: 481px,
+  small: 576px,
+  medium: 768px,
+  large: 992px,
+  xs-large: 1200px
+);
+
+$breakpoints-max : (
+  xs-small: 480px,
+  small: 575px,
+  medium: 767px,
+  large: 991px,
+  xs-large: 1199px
+);
+
+// ========== Mixins ==========
+@mixin seudoElm ($cont:"", $pos:absolute) {
+  content: $cont;
+  position: $pos;
+}
+
+@mixin animationForwards ($nameAnim, $time:.3s,$easing:linear) {
+  animation: $nameAnim $time $easing forwards;
+}
+
+@mixin placeholderStyle ($elm:input, $color:$blueDark) {
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: $color;
+      opacity: 1; /* Firefox */
+  }
+
+  :-ms-#{$elm}-placeholder { /* Internet Explorer 10-11 */
+      color: $color;
+  }
+
+  ::-ms-#{$elm}placeholder { /* Microsoft Edge */
+      color: $color;
+  }
+}
+
+@mixin shadow () {
+  box-shadow: 0 0 16px rgba(black, .15);
+}
+
+//------- Mixins Responsive -------
+//Min
+@mixin mq-min($mq-breakpoint, $mq-breakpoints: $breakpoints-min) {
+  @if map-has-key($mq-breakpoints, $mq-breakpoint) {
+    $mq-breakpoint: map-get($mq-breakpoints, $mq-breakpoint);
+  }
+
+  @media (min-width: #{$mq-breakpoint}) {
+    @content;
+  }
+}
+
+//Max
+@mixin mq-max($mq-breakpoint, $mq-breakpoints: $breakpoints-max) {
+  @if map-has-key($mq-breakpoints, $mq-breakpoint) {
+    $mq-breakpoint: map-get($mq-breakpoints, $mq-breakpoint);
+  }
+
+  @media (max-width: #{$mq-breakpoint}) {
+    @content;
+  }
+}
+
+//Min-Max
+@mixin mq-min-max($min-breakpoint, $max-breakpoint) {
+  $min-breakpoint-value: map-get(map-get($breakpoints-min, $min-breakpoint), min-width);
+  $max-breakpoint-value: map-get(map-get($breakpoints-max, $max-breakpoint), max-width);
+
+  @media (min-width: #{$min-breakpoint-value}) and (max-width: #{$max-breakpoint-value}) {
+      @content;
+  }
+}
+

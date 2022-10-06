@@ -1,0 +1,151 @@
+<div>
+<div class="card">
+  <div class="card-header d-flex justify-content-between align-items-center">
+  <div>
+    <i class="fas fa-user-alt"></i> Datos Afiliado
+  </div>
+
+  <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  Generar certificado
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+  <a class="dropdown-item" (click)="createPDF()">Afiliado</a>
+  <a class="dropdown-item" href="#">Grupo familia</a>
+  </div>
+  </div>
+
+
+</div>
+  <div class="card-body">
+    <div class="container border-start">
+      <div class="row justify-content-md-center mt-5">
+        <div class="col-sm">
+          <p><strong>Nombre: </strong> {{afiliados.primerNombre}} {{afiliados.segundoNombre}} {{afiliados.primerApellido}}  {{afiliados.segundoApellido}}</p>
+        </div>
+        <div class="col-sm">
+          <p><strong>Fecha nacimiento: </strong> {{afiliados.fechaNacimiento}}</p>
+        </div>
+        <div class="col-sm">
+          <p><strong>Fecha ingreso empresa: </strong> {{afiliados.afiliacion.fechaAfiliacion}}</p>
+        </div>
+      </div>
+
+      <div class="row justify-content-md-center mt-5">
+        <div class="col">
+          <p><strong>Fecha afiliacion: </strong> {{afiliados.afiliacion.fechaAfiliacion}}</p>
+        </div>
+        <div class="col">
+          <p><strong>Estado afiliacion: </strong> {{afiliados.tarjetaMultiservicios.estado}}</p>
+        </div>
+        <div class="col">
+          <p><strong>Fecha Retiro: </strong> {{afiliados.afiliacion.fechaRetiro}}</p>
+        </div>
+      </div>
+
+      <div class="row justify-content-md-center mt-5">
+        <div class="col">
+          <p><strong>Categoria: </strong> {{afiliados.afiliacion.categoria}}</p>
+        </div>
+        <div class="col">
+          <p><strong>Tipo trabajador: </strong> {{afiliados.afiliacion.tipoTrabajador}}</p>
+        </div>
+        <div class="col">
+          <p><strong>Numero tarjeta: </strong> {{afiliados.tarjetaMultiservicios.numeroTarjeta}}</p>
+        </div>
+      </div>
+
+      <div class="row justify-content-md-center mt-5 border-left">
+        <div class="col">
+          <p><strong>Gp: </strong> {{afiliados.tarjetaMultiservicios.gp}}</p>
+        </div>
+        <div class="col">
+          <p><strong>Estado Tarjeta: </strong> {{afiliados.tarjetaMultiservicios.estadoEntrega}}</p>
+        </div>
+        <div class="col">
+          <p><strong>Fecha entrega tarjeta: </strong> {{afiliados.tarjetaMultiservicios.fechaEntrega}}</p>
+        </div>
+      </div>
+
+     <div class="row justify-content-md-center mt-5">
+        <div class="col">
+          <p><strong>Valor último Subsidio: </strong> {{afiliados.subsidio.valor}}</p>
+        </div>
+        <div class="col">
+          <p><strong>Último ciclo pagado: </strong> {{afiliados.tarjetaMultiservicios.ultimoMesPagado}}</p>
+        </div>
+        <div class="col">
+          <p><strong>Via de Pago: </strong> {{afiliados.tarjetaMultiservicios.metodoPago.nombre}}</p>
+        </div>
+      </div>
+
+    <div class="row justify-content-md-center mt-5">
+        <div class="col">
+        </div>
+        <div class="col">
+          <p><strong>Motivo Bloqueo: </strong> {{afiliados.tarjetaMultiservicios.motivoBloqueo}}</p>
+        </div>
+        <div class="col">
+          <p><strong>Tipo Afiliación: </strong> {{afiliados.afiliacion.tipoTrabajador}}</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<div class="card">
+  <div class="card-header">
+    <strong> Datos de afiliacion </strong>
+  </div>
+  <div class="card-body">
+    <div class="container border-start">
+      <div class="row justify-content-md-center mt-5">
+        <div class="col-sm">
+          <p><strong>Tipo Aporte Afiliado: </strong> </p>
+        </div>
+        <div class="col-sm">
+        </div>
+        <div class="col-sm">
+          <p><strong>Porcentaje Aporte Afiliado: </strong> </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <strong> Datos empresa </strong>
+  </div>
+  <div class="card-body">
+    <table class="table">
+        <thead>
+          <tr>
+              <th class="col"> Razon social</th>
+              <th class="col"> Tipo Documento</th>
+              <th class="col"> Numero Documento</th>
+              <th class="col"> Estado </th>
+              <th class="col"> Accion</th>
+          </tr>
+        </thead>
+        <tbody>
+           <tr *ngFor="let companias of afiliados.empleadores.companias">
+             <th>{{companias.nombre}}</th>
+             <th>{{companias.tipoDocumento}}</th>
+             <th>{{companias.numberoDocumento}}</th>
+             <th>{{companias.estado}}</th>
+             <th> aciones</th>
+           </tr>
+        </tbody>
+
+    </table>
+  </div>
+</div>
+
+
+</div>

@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app_sapMascara_ang';
+  title = 'Bienvendios a SAP';
+  curso= 'curso angular'
 }
