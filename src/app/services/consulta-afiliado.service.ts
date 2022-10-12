@@ -5,7 +5,6 @@ import {AFILIADOS} from '../models/afiliados.json';
 import {of,Observable} from 'rxjs';
 import { HttpClient,  HttpHeaders } from '@angular/common/http';
 import {AfiliadoSh} from '../models/afiliado-sh.interface';
-import {AfiliadoIn} from '../models/afiliado-in'
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +29,7 @@ export class ConsultaAfiliadoService {
 
   getafiliado(): Observable<Afiliado> {
 
-   return this.http.get<Afiliado>('http://localhost:8080/afiliado/CO1C/1',{headers:this.headers});
+   return this.http.get<Afiliado>('http://localhost:8080/afiliado/CO1C/1018497',{headers:this.headers});
     //return this.http.get<Afiliado[]>(this.urlEndPoint).pipe(
       //map((response)=> response as Afiliado[])
     //);
