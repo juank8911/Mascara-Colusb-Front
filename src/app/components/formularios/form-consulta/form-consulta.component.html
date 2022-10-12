@@ -51,6 +51,6 @@
     </div>
   </div>
 </div>
-
-<app-afiliado-list *ngIf="buscar==true && afiliado == true"> </app-afiliado-list>
-<app-empresa-list *ngIf="buscar==true && afiliado == false"> </app-empresa-list>
+<!-- *ngIf="buscar==true && afiliado == true" -->
+<app-afiliado-list [afiliados]='afiliados'*ngIf="afEnco==true" > </app-afiliado-list>
+<app-empresa-list *ngIf="emEnco==true"> </app-empresa-list>

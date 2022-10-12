@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Afiliado} from '../models/afiliado';
 import {TokenReq} from '../models/token-req';
-import {AFILIADOS} from '../models/afiliados.json';
-import {of,Observable} from 'rxjs';
+import {Observable} from 'rxjs';
 import { HttpClient,  HttpHeaders } from '@angular/common/http';
 import {AfiliadoSh} from '../models/afiliado-sh.interface';
 
@@ -29,7 +28,7 @@ export class ConsultaAfiliadoService {
 
   getafiliado(): Observable<Afiliado> {
 
-   return this.http.get<Afiliado>('http://localhost:8080/afiliado/CO1C/1018497',{headers:this.headers});
+   return this.http.get<Afiliado>('http://localhost:8080/afiliado/CO1C/1018497540',{headers:this.headers});
     //return this.http.get<Afiliado[]>(this.urlEndPoint).pipe(
       //map((response)=> response as Afiliado[])
     //);

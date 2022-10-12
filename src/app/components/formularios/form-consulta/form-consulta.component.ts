@@ -1,7 +1,10 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ConsultaAfiliadoService} from '../../../services/consulta-afiliado.service';
-import {AfiliadoListComponent} from '../../lists/afiliado-list/afiliado-list.component'
+import {AfiliadoListComponent} from '../../lists/afiliado-list/afiliado-list.component';
+import {Afiliado} from '../../../models/afiliado';
+import {Empresa} from '../../../models/empresa';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-form-consulta',
@@ -11,7 +14,11 @@ import {AfiliadoListComponent} from '../../lists/afiliado-list/afiliado-list.com
 export class FormConsultaComponent implements OnInit {
   form: FormGroup;
 
+            afiliados: Afiliado
+            empresa: Empresa;
             buscar = false;
+            afEnco = false;
+            emEnco = false;
              afiliado = true;
       checks=
       [
@@ -19,13 +26,13 @@ export class FormConsultaComponent implements OnInit {
         {id:"emp", value:"emp", labl:"Empresa"}
       ];
 
-  constructor(private afiliadList: AfiliadoListComponent) {
+  constructor(private afiliadList: AfiliadoListComponent, private afiliadoServ: ConsultaAfiliadoService) {
   this.buildForm();
 
   }
 
   ngOnInit(): void {
-    console.log(this.checks);
+    // console.log(this.checks);
   }
 
   private buildForm() {
@@ -59,6 +66,8 @@ export class FormConsultaComponent implements OnInit {
 }
 
 
+
+
   myFunc(event: Event) {
   event.preventDefault();
   const value = this.form.value;
@@ -68,11 +77,33 @@ export class FormConsultaComponent implements OnInit {
 
 async buscarAppi(event: Event)
 {
+    this.buscar = true;
   event.preventDefault();
-  this.buscar = true;
   const value = this.form.value;
-  await this.afiliadList.buscarAfiliado(value);
-  console.log('esperando....')
+  console.log(value.tipoCons);
+  if(value.tipoCons=='afl')
+  {
+      this.afiliadoServ.getAfiliadoApi(value).subscribe(data=>{
+        console.log(data);
+        this.afiliados = data;
+        this.afEnco = true;
+        this.buscar = false;
+      })
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Usuario Encontrado',
+        showConfirmButton: false,
+        timer: 1500
+        })
+  }
+  if(value.tipoCons=='emp')
+  {
+    this.afEnco = false;
+    this.emEnco = true;
+    console.log('empresa')
+  }
+
 }
 
 
