@@ -84,9 +84,9 @@ export const AFILIADOS: Afiliado[] = [
        }
      ]
    },
-   pacs": [
+   pacs: [
      {
-       bp": "0020361160",
+       bp: "0020361160",
        tipoDocumento: "CO1L",
        numeroDocumento: "1030665145",
        primerNombre: "SANTIAGO",
@@ -140,7 +140,7 @@ export const AFILIADOS: Afiliado[] = [
        nivelEducativo: "01",
        institucionEducativa: {
          descripcion: "",
-         nombre": "",
+         nombre: "",
          documento: {
            numero: "",
            tipo: ""
@@ -161,7 +161,7 @@ export const AFILIADOS: Afiliado[] = [
          documento: {
            numero: "",
            tipo: ""
-         }888888888888888
+         }
        },
        estado: "VIGEN"
      }

@@ -1,5 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {ConsultaAfiliadoService} from '../../../services/consulta-afiliado.service';
+import {AfiliadoListComponent} from '../../lists/afiliado-list/afiliado-list.component'
 
 @Component({
   selector: 'app-form-consulta',
@@ -17,7 +19,7 @@ export class FormConsultaComponent implements OnInit {
         {id:"emp", value:"emp", labl:"Empresa"}
       ];
 
-  constructor() {
+  constructor(private afiliadList: AfiliadoListComponent) {
   this.buildForm();
 
   }
@@ -29,27 +31,27 @@ export class FormConsultaComponent implements OnInit {
   private buildForm() {
   this.form = new FormGroup({
       tipoCons: new FormControl('afl', []),
-      tipoDoc: new FormControl('CO1C', [Validators.required]),
-      numDoc: new FormControl('',[Validators.required]),
+      tipoId: new FormControl('CO1C', [Validators.required]),
+    numeroId: new FormControl('',[Validators.required]),
     });
 
 
     this.form.get('tipoCons')?.valueChanges.subscribe(value => {
       if(value == "emp")
       {
-        this.form.get('tipoDoc')?.disable();
-        this.form.get('tipoDoc')?.setValue('CO1N');
+        this.form.get('tipoId')?.disable();
+        this.form.get('tipoId')?.setValue('CO1N');
         this.afiliado = false;
         this.buscar = false;
-        this.form.get('numDoc')?.setValue('');
+        this.form.get('numeroId')?.setValue('');
       }
       else
       {
-         this.form.get('tipoDoc')?.enable();
-         this.form.get('tipoDoc')?.setValue('CO1C');
+         this.form.get('tipoId')?.enable();
+         this.form.get('tipoId')?.setValue('CO1C');
          this.afiliado = true;
          this.buscar = false;
-         this.form.get('numDoc')?.setValue('');
+         this.form.get('numeroId')?.setValue('');
       }
 
       console.log(value);
@@ -62,6 +64,15 @@ export class FormConsultaComponent implements OnInit {
   const value = this.form.value;
   this.buscar = true;
   console.log(value);
+}
+
+async buscarAppi(event: Event)
+{
+  event.preventDefault();
+  this.buscar = true;
+  const value = this.form.value;
+  await this.afiliadList.buscarAfiliado(value);
+  console.log('esperando....')
 }
 
 

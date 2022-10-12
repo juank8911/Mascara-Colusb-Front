@@ -1,7 +1,7 @@
 export class Empresa {
 razonSocial:string;
 tipoDocumento:	string;
-númeroDocumento:	string;
+numeroDocumento:	string;
 estado:	string;
 direccion:	string;
 departamento:	string;
@@ -11,8 +11,8 @@ celular:	string;
 correoElectronico:	string;
 codClaseAportante:	string;
 descClaseAportante:	string;
-codActividadEconómica:	string;
-descActividadEconómica:	string;
+codActividadEconomica:	string;
+descActividadEconomica:	string;
 tipoPersona:	string;
 tipoAportante:		string;
 fechainicioActividades:	string;

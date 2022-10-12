@@ -12,6 +12,8 @@ import { AfiliadoListComponent } from './components/lists/afiliado-list/afiliado
 import {RouterModule,Routes} from '@angular/router';
 import { PostsComponent } from './components/lists/posts/posts.component';
 import { EmpresaListComponent } from './components/lists/empresa-list/empresa-list.component';
+import {PdgenerateComponent} from './components/pdgenerate/pdgenerate.component';
+import {ConsultaAfiliadoService} from './services/consulta-afiliado.service'
 
 const routes: Routes = [
   {path: '', redirectTo:'/consultaafiliado', pathMatch: 'full'},
@@ -40,7 +42,12 @@ const routes: Routes = [
     MatFormFieldModule,
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [
+    PdgenerateComponent,
+    ConsultaAfiliadoService,
+    AfiliadoListComponent,
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

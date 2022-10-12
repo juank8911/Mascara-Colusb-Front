@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 offset-md-3">
-      <form class="row g-3" [formGroup]="form" (ngSubmit)="myFunc($event)">
+      <form class="row g-3" [formGroup]="form" (ngSubmit)="buscarAppi($event)">
         <div class="col-md-3">
         <label for="validationServer01" class="form-label">Tipo Consulta:</label>
         </div>
@@ -18,7 +18,7 @@
       </div>
       <div class="col-md-6">
         <div class="form-floating">
-    <select class="form-select" id="tipoDoc" formControlName="tipoDoc" aria-label="Tipo de documento">
+    <select class="form-select" id="tipoId" formControlName="tipoId" aria-label="Tipo de documento">
             <option Value="CO1C">Cédula de ciudadanía </option>
             <option Value="CO1T">Tarjeta identidad    </option>
             <option Value="CO1L">Registro civil       </option>
@@ -26,14 +26,14 @@
             <option Value ="CO1N">Nit                 </option>
             <option Value ="CO1D">Carnet diplomatico  </option>
       </select>
-        <label for="tipoDoc">Tipo de identificacion</label>
+        <label for="tipoId">Tipo de identificacion</label>
       </div>
       </div>
       <div class="col-md-8">
 
         <div class="form-floating mb-3">
-          <input type="number" maxlength="10" formControlName="numDoc" class="form-control" name="numDoc" id="numDoc" placeholder="1234567890" aria-describedby="validationServer03Feedback">
-          <label for="numDoc">Numero de identificacion</label>
+          <input type="text" maxlength="10" formControlName="numeroId" class="form-control" name="numeroId" id="numeroId" placeholder="1234567890" aria-describedby="validationServer03Feedback" required>
+          <label for="numeroId">Numero de identificacion</label>
           <!-- <div id="validationServer03Feedback" class="invalid-feedback">
             el numero de identificacion no se encuentra como afiliado.
           </div> -->
