@@ -1,81 +1,52 @@
-<div >
+<div *ngFor="let emp of empresa.data">
 <div class="card">
   <div class="card-header">
     Datos empresa
   </div>
   <div class="card-body">
     <div class="container border-start">
-      <div class="row justify-content-md-center">
-        <div class="col-sm">
-          <p><strong>razónSocial: </strong> {{empresa.razonSocial}}</p>
-        </div>
-        <div class="col-sm">
-          <p><strong>Direccion: </strong> {{empresa.direccion}}</p>
-        </div>
-        <div class="col-sm">
-          <p><strong>Celular: </strong> {{empresa.celular}}</p>
-        </div>
-        <div class="col-sm">
-          <p><strong>Cod. actividad económica:</strong> {{empresa.celular}}</p>
-        </div>
-        <div class="col-sm">
-          <p><strong>Fecha inicio actividades:</strong>{{empresa.fechainicioActividades}}</p>
-        </div>
-      </div>
 
-      <div class="row justify-content-md-center">
-        <div class="col-sm">
-          <p><strong>Tipo documento: </strong> {{empresa.tipoDocumento}}</p>
-        </div>
-        <div class="col-sm">
-          <p><strong>Departamento: </strong> {{empresa.departamento}}</p>
-        </div>
-        <div class="col-sm">
-          <p><strong>Correo electronico: </strong> {{empresa.correoElectronico}}</p>
-        </div>
-        <div class="col-sm">
-          <p><strong>Desc. actividad económica:</strong> {{empresa.descActividadEconomica}}</p>
-        </div>
-        <div class="col-sm">
-            <p><strong>Cantidad empleados:</strong> {{empresa.cantidadEmpleados}}</p>
-        </div>
-      </div>
+      <table class="table">
+  <!-- <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead> -->
+  <!-- 8110089636 -->
+  <tbody>
+    <tr>
+      <td><strong>razónSocial: </strong> {{emp.contribuyente.nombre}}</td>
+      <td><strong>Direccion: </strong> {{emp.contribuyente.direccion.direccionPrincipal}}</td>
+      <td><strong>Celular: </strong>  {{emp.contribuyente.telefono.celular}}</td>
+      <td><strong>Cod. actividad económica:</strong> {{emp.contribuyente.actividadEconomica.codigo}}</td>
+      <td><strong>Fecha inicio actividades:</strong> {{emp.contribuyente.fechaInicio}}</td>
+    </tr>
+    <tr>
+      <td><strong>Tipo documento: </strong>{{emp.contribuyente.tipoDocumento}}</td>
+      <td><strong>Departamento: </strong> {{emp.contribuyente.direccion.departamento.nombre}}</td>
+      <td><strong>Correo electronico: </strong>{{emp.contribuyente.correoElectronico}}</td>
+      <td><strong>Desc. actividad económica:</strong>{{emp.contribuyente.actividadEconomica.descripcion}}</td>
+      <td><strong>Cantidad empleados: </strong>{{emp.contribuyente.detalleAportantes[0].numeroCotizantes}}</td>
+    </tr>
+    <tr>
+      <td><strong>Número documento: </strong> {{emp.contribuyente.numeroDocumento}}</td>
+      <td><strong>Ciudad: </strong> {{emp.contribuyente.direccion.ciudad.nombre}}</td>
+      <td><strong>Cod clase aportante: </strong> {{emp.contribuyente.clase.id}}</td>
+      <td><strong>Tipo persona: </strong> </td>
+    </tr>
+    <tr>
+      <td><strong>Estado: </strong> {{emp.contribuyente.detalleAportantes[0].estado.estadoId}}</td>
+      <td><strong>Telefono: </strong>{{emp.contribuyente.telefono.fijo}}</td>
+      <td><strong>Desc clase aportante: </strong> {{emp.contribuyente.clase.descripcion}}</td>
+      <td><strong>Tipo aportante: </strong>{{emp.contribuyente.tipoContribuyente}}</td>
+    </tr>
 
 
-      <div class="row justify-content-md-center">
-        <div class="col-sm">
-          <p><strong>Número documento: </strong> {{empresa.numeroDocumento}}</p>
-        </div>
-        <div class="col-sm">
-          <p><strong>Ciudad: </strong> {{empresa.ciudad}}</p>
-        </div>
-        <div class="col-sm">
-          <p><strong>Cod clase aportante </strong> {{empresa.codClaseAportante}}</p>
-        </div>
-        <div class="col-sm">
-          <p><strong>Tipo persona</strong> {{empresa.tipoPersona}}</p>
-        </div>
-        <div class="col-sm">
-        </div>
-      </div>
-
-      <div class="row justify-content-md-center">
-        <div class="col-sm">
-          <p><strong>Estado: </strong> {{empresa.estado}}</p>
-        </div>
-        <div class="col-sm">
-          <p><strong>Telefono: </strong> {{empresa.telefono}}</p>
-        </div>
-        <div class="col-sm">
-          <p><strong>Desc clase aportante </strong> {{empresa.descClaseAportante}}</p>
-        </div>
-        <div class="col-sm">
-          <p><strong>Tipo aportante</strong> {{empresa.tipoAportante}}</p>
-        </div>
-        <div class="col-sm">
-        </div>
-      </div>
-
+  </tbody>
+</table>
 
   </div>
 </div>

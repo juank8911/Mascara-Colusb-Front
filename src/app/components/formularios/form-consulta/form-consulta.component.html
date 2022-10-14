@@ -20,11 +20,17 @@
         <div class="form-floating">
     <select class="form-select" id="tipoId" formControlName="tipoId" aria-label="Tipo de documento">
             <option Value="CO1C">Cédula de ciudadanía </option>
+            <option value="CO1E">Cédula de extranjería</option>
             <option Value="CO1T">Tarjeta identidad    </option>
             <option Value="CO1L">Registro civil       </option>
             <option Value="CO1P">Pasaporte            </option>
             <option Value ="CO1N">Nit                 </option>
-            <option Value ="CO1D">Carnet diplomatico  </option>
+            <option value="CO1D">Carnet Diplomático</option>
+            <option value="CO1S">Sin identificación del exterior</option>
+            <option value="CO1V">Permiso Especial de Permanencia</option>
+            <option value="CO1X">Tarjeta de extranjería</option>
+            <option value="CO1W">Permiso de Protección Temporal</option>
+
       </select>
         <label for="tipoId">Tipo de identificacion</label>
       </div>
@@ -34,6 +40,9 @@
         <div class="form-floating mb-3">
           <input type="text" maxlength="10" formControlName="numeroId" class="form-control" name="numeroId" id="numeroId" placeholder="1234567890" aria-describedby="validationServer03Feedback" required>
           <label for="numeroId">Numero de identificacion</label>
+          <span *ngIf="this.form.get('numeroId')?.errors?.['required']" hidden>
+                (El nombre no puede quedar vacío)
+          </span>
           <!-- <div id="validationServer03Feedback" class="invalid-feedback">
             el numero de identificacion no se encuentra como afiliado.
           </div> -->
@@ -42,7 +51,7 @@
       <div class="col-12">
       </div>
 <div class="col-12">
-      <button class="btn btn-primary btn-clor" type="submit">
+      <button class="btn btn-primary btn-clor" type="submit" name="btnEn" id="btnEn" >
         <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="buscar == true"></span>
         Buscar
       </button>
@@ -51,6 +60,15 @@
     </div>
   </div>
 </div>
+
+<div class="alert alert-warning mt-3" role="alert" *ngIf="retiro==true">
+  Notificación Usuario en periodo de gracia. Han pasado 51 dias desde fecha Retiro.
+</div>
+
+<div class="alert alert-warning mt-3" role="alert" *ngIf="esBenef==true">
+  El usuario {{nombreBene}} es beneficiario del afiliado {{nombreAfi}} con parentesco {{parentesco}}
+</div>
+
 <!-- *ngIf="buscar==true && afiliado == true" -->
 <app-afiliado-list [afiliados]='afiliados'*ngIf="afEnco==true" > </app-afiliado-list>
-<app-empresa-list *ngIf="emEnco==true"> </app-empresa-list>
+<app-empresa-list  [empresa]='empresa' *ngIf="emEnco==true"> </app-empresa-list>

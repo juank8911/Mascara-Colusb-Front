@@ -139,7 +139,7 @@
 <tr *ngFor="let benef of afil.pacs">
 <th scope="row"> {{benef.tipoDocumento}}</th>
 <td>{{benef.numeroDocumento}}</td>
-<td>{{benef.primerNombre}}   apellidos</td>
+<td>{{benef.primerNombre}} {{benef.segundoNombre}} {{benef.apellido}} {{benef.segundoApellido}}</td>
 <td>{{benef.relacion.descripcion}}</td>
 <td>{{benef.genero}}</td>
 <td>{{benef.fechaNacimiento}}</td>
@@ -176,7 +176,10 @@
          <th>{{companias.tipoDocumento}}</th>
          <th>{{companias.numberoDocumento}}</th>
          <th>{{companias.estado}}</th>
-         <th> aciones</th>
+         <th>  <button class="btn btn-primary btn-clor" type="button" (click)='buscarEmpres(companias.numberoDocumento)'>
+             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="buscar == true"></span>
+             Ver detalle
+           </button></th>
        </tr>
     </tbody>
 </table>

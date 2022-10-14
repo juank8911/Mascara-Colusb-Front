@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
 import {Afiliado} from '../models/afiliado';
+import {Empresa} from '../models/empresa'
+import {Configs} from '../config/configs';
 import {TokenReq} from '../models/token-req';
-import {Observable} from 'rxjs';
+import {Observable,map} from 'rxjs';
 import { HttpClient,  HttpHeaders } from '@angular/common/http';
 import {AfiliadoSh} from '../models/afiliado-sh.interface';
+import {TransDatosService} from '../services/trans-datos.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,45 +14,39 @@ import {AfiliadoSh} from '../models/afiliado-sh.interface';
 export class ConsultaAfiliadoService {
 
   headers = new HttpHeaders;
-  url:string = "https://colsubsidio-test.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials";
-  urlLoc:string = "http://localhost:8080/token"
-  uri:string = "https://colsubsidio-test.apigee.net/api/";
-  uriSh:String = "/v2/afiliacion/validador?";
-  body:{
-    clienteId: "sD68JKGm4GeAb8lFva22v7OgCBSXfcbj",
 
-    clienteSecreto: "9yXLfPgaxBAYEGSl"
-  }
+  //crera archivo de configuracion
+  uriSh:String = "/v2/afiliacion/validador?";
+
 
   tokenrq: TokenReq;
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private tranDatos: TransDatosService, private confi: Configs) {
+  }
 
   getafiliado(): Observable<Afiliado> {
 
    return this.http.get<Afiliado>('http://localhost:8080/afiliado/CO1C/1018497540',{headers:this.headers});
-    //return this.http.get<Afiliado[]>(this.urlEndPoint).pipe(
-      //map((response)=> response as Afiliado[])
-    //);
+
   }
 
-serviceToken(): Observable<TokenReq>
-{
-    this.headers.set('Access-Control-Allow-Origin', '**');
-    this.headers.set('grant_type', 'client_credentials');
-    this.headers.set('Access-Control-Allow-Origin','true');
 
- return this.http.post<TokenReq>(this.urlLoc,this.body, {headers:this.headers} )
-
-}
 
 getAfiliadoApi(formsh:AfiliadoSh):Observable<Afiliado>
 {
-  // const httpOptions = {Headers: new HttpHeaders({'Authorization':'Bearer ER1QiA5uXeHlH4uAmSa8DcRZi909'})}
-  // this.headers.set('Access-Control-Allow-Origin', '**');
-  // this.headers.set('Authorization','Bearer ER1QiA5uXeHlH4uAmSa8DcRZi909');
+
   this.headers.set('Access-Control-Allow-Origin','true');
-  return this.http.get<Afiliado>('http://localhost:8080/afiliado/'+formsh.tipoId+"/"+formsh.numeroId,{headers:this.headers});
+  return this.http.get(this.confi.urlAf+formsh.tipoId+"/"+formsh.numeroId,{headers:this.headers}).pipe(
+    map( afil => {
+    let  afiliado = afil as Afiliado
+      if(afiliado.data.length>0)afiliado = this.tranDatos.afiliadrTrnsfData(afiliado);
+      return afiliado
+    }
+
+    )
+  )
 }
+
+
 }

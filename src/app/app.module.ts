@@ -13,7 +13,9 @@ import {RouterModule,Routes} from '@angular/router';
 import { PostsComponent } from './components/lists/posts/posts.component';
 import { EmpresaListComponent } from './components/lists/empresa-list/empresa-list.component';
 import {PdgenerateComponent} from './components/pdgenerate/pdgenerate.component';
-import {ConsultaAfiliadoService} from './services/consulta-afiliado.service'
+import {ConsultaAfiliadoService} from './services/consulta-afiliado.service';
+import {Configs} from './config/configs'
+
 
 const routes: Routes = [
   {path: '', redirectTo:'/consultaafiliado', pathMatch: 'full'},
@@ -32,6 +34,7 @@ const routes: Routes = [
     AfiliadoListComponent,
     PostsComponent,
     EmpresaListComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -46,6 +49,7 @@ const routes: Routes = [
     PdgenerateComponent,
     ConsultaAfiliadoService,
     AfiliadoListComponent,
+    Configs,
 
   ],
   bootstrap: [AppComponent]
