@@ -4,6 +4,7 @@ import {ConsultaAfiliadoService} from '../../../services/consulta-afiliado.servi
 import {ConsultaEmpresaService} from '../../../services/consulta-empresa.service';
 import {Afiliado} from '../../../models/afiliado';
 import {Empresa} from '../../../models/empresa';
+import {PdgenerateComponent}from '../../pdgenerate/pdgenerate.component';
 import Swal from 'sweetalert2';
 import {AfiliadoSh} from '../../../models/afiliado-sh.interface'
 import {formatDate} from '@angular/common'
@@ -26,6 +27,7 @@ export class FormConsultaComponent implements OnInit {
             afEnco = false;
             emEnco = false;
              afiliado = true;
+             genpdf=false;
              parentesco:string;
              retiro=false;
       checks=
@@ -244,6 +246,8 @@ beneficiarios.map(benef=>{
   this.parentesco =  benef.relacion.descripcion}
 })
 }
+
+
 
 limpiarBusquedas()
 {

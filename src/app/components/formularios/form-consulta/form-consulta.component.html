@@ -6,9 +6,6 @@
         <label for="validationServer01" class="form-label">Tipo Consulta:</label>
         </div>
       <div class="col-md-8">
-        <!-- <div *ngFor="let chek of checks">
-          <p>{{chek.id}}</p>
-        </div> -->
       <div class="form-check form-check-inline" *ngFor="let cons of checks">
         <input class="form-check-input" type="radio" name="tipoCons" id={{cons.id}} formControlName="tipoCons" value={{cons.value}} >
         <label class="form-check-label" for="tipoCons">
@@ -40,12 +37,6 @@
         <div class="form-floating mb-3">
           <input type="text" maxlength="10" formControlName="numeroId" class="form-control" name="numeroId" id="numeroId" placeholder="1234567890" aria-describedby="validationServer03Feedback" required>
           <label for="numeroId">Numero de identificacion</label>
-          <span *ngIf="this.form.get('numeroId')?.errors?.['required']" hidden>
-                (El nombre no puede quedar vacío)
-          </span>
-          <!-- <div id="validationServer03Feedback" class="invalid-feedback">
-            el numero de identificacion no se encuentra como afiliado.
-          </div> -->
         </div>
       </div>
       <div class="col-12">
@@ -62,7 +53,7 @@
 </div>
 
 <div class="alert alert-warning mt-3" role="alert" *ngIf="retiro==true">
-  Notificación Usuario en periodo de gracia. Han pasado 51 dias desde fecha Retiro.
+  Notificación Usuario en periodo de gracia. Han pasado 51 dias desde fecha retiro.
 </div>
 
 <div class="alert alert-warning mt-3" role="alert" *ngIf="esBenef==true">

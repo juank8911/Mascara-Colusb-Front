@@ -6,7 +6,7 @@
   <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center">
         <div>
-           Datos Afiliado
+           Datos afiliado
         </div>
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -42,7 +42,7 @@
         <p><strong>Estado afiliacion: </strong> {{afil.afiliado.tarjetaMultiservicios.estado}}</p>
       </div>
       <div class="col">
-        <p><strong>Fecha Retiro: </strong> {{afil.afiliado.afiliacion.fechaRetiro}}</p>
+        <p><strong>Fecha retiro: </strong> {{afil.afiliado.afiliacion.fechaRetiro}}</p>
       </div>
 
       <div class="col">
@@ -59,29 +59,29 @@
         <p><strong>Gp: </strong> {{afil.afiliado.tarjetaMultiservicios.gp}}</p>
       </div>
       <div class="col">
-        <p><strong>Estado Tarjeta: </strong> {{afil.afiliado.tarjetaMultiservicios.estadoEntrega}}</p>
+        <p><strong>Estado tarjeta: </strong> {{afil.afiliado.tarjetaMultiservicios.estadoEntrega}}</p>
       </div>
       <div class="col">
         <p><strong>Fecha entrega tarjeta: </strong> {{afil.afiliado.tarjetaMultiservicios.fechaEntrega}}</p>
       </div>
 
       <div class="col">
-        <p><strong>Valor último Subsidio: </strong> {{afil.afiliado.afiliacion.subsidio}}</p>
+        <p><strong>Valor último subsidio: </strong> {{afil.afiliado.afiliacion.subsidio}}</p>
       </div>
       <div class="col">
         <p><strong>Último ciclo pagado: </strong> {{afil.afiliado.tarjetaMultiservicios.ultimoMesPagado}}</p>
       </div>
       <div class="col">
-        <p><strong>Via de Pago: </strong> {{afil.afiliado.tarjetaMultiservicios.metodoPago.nombre}}</p>
+        <p><strong>Via de pago: </strong> {{afil.afiliado.tarjetaMultiservicios.metodoPago.nombre}}</p>
       </div>
 
       <div class="col">
       </div>
       <div class="col">
-        <p><strong>Motivo Bloqueo: </strong> {{afil.afiliado.tarjetaMultiservicios.motivoBloqueo}}</p>
+        <p><strong>Motivo bloqueo: </strong> {{afil.afiliado.tarjetaMultiservicios.motivoBloqueo}}</p>
       </div>
       <div class="col">
-        <p><strong>Tipo Afiliación: </strong> {{afil.afiliado.afiliacion.tipoTrabajador}}</p>
+        <p><strong>Tipo afiliación: </strong> {{afil.afiliado.afiliacion.tipoTrabajador}}</p>
       </div>
 
 
@@ -102,12 +102,12 @@
     <div class="container border-start">
 <div class="row justify-content-md-center mt-5">
   <div class="col-sm">
-    <p><strong>Tipo Aporte Afiliado: </strong> 	D1 -Afiliados Dependientes </p>
+    <p><strong>Tipo aporte afiliado: </strong> 	D1 -Afiliados Dependientes </p>
   </div>
   <div class="col-sm">
   </div>
   <div class="col-sm">
-    <p><strong>Porcentaje Aporte Afiliado: </strong> 4.0% </p>
+    <p><strong>Porcentaje aporte afiliado: </strong> 4.0% </p>
   </div>
 </div>
 </div>
@@ -122,7 +122,7 @@
 <thead>
 <tr>
 <th scope="col">Tipo documento</th>
-<th scope="col">Documento</th>
+<th scope="col">documento</th>
 <th scope="col">Nombre</th>
 <th scope="col">Parentesco</th>
 <th scope="col">Genero</th>
@@ -164,8 +164,8 @@
     <thead>
       <tr>
           <th class="col"> Razon social</th>
-          <th class="col"> Tipo Documento</th>
-          <th class="col"> Numero Documento</th>
+          <th class="col"> Tipo documento</th>
+          <th class="col"> Numero documento</th>
           <th class="col"> Estado </th>
           <th class="col"> Accion</th>
       </tr>
@@ -189,6 +189,5 @@
 </div>
 </div>
 </div>
-
-
+<app-pdgenerate [afiliados]='afiliados' *ngIf="genpdf==true"></app-pdgenerate>
 </div>

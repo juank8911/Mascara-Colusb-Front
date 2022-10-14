@@ -10,7 +10,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormConsultaComponent } from './components/formularios/form-consulta/form-consulta.component';
 import { AfiliadoListComponent } from './components/lists/afiliado-list/afiliado-list.component';
 import {RouterModule,Routes} from '@angular/router';
-import { PostsComponent } from './components/lists/posts/posts.component';
 import { EmpresaListComponent } from './components/lists/empresa-list/empresa-list.component';
 import {PdgenerateComponent} from './components/pdgenerate/pdgenerate.component';
 import {ConsultaAfiliadoService} from './services/consulta-afiliado.service';
@@ -21,8 +20,8 @@ const routes: Routes = [
   {path: '', redirectTo:'/consultaafiliado', pathMatch: 'full'},
   {path: 'consultaafiliado', component: FormConsultaComponent},
   {path: 'afiliado', component: AfiliadoListComponent},
-  {path: 'posts', component: PostsComponent},
-  {path: 'empresa',component: EmpresaListComponent }
+  {path: 'empresa',component: EmpresaListComponent },
+  {path: 'pdf', component:PdgenerateComponent}
 
 ];
 
@@ -32,8 +31,8 @@ const routes: Routes = [
     HeaderComponent,
     FormConsultaComponent,
     AfiliadoListComponent,
-    PostsComponent,
     EmpresaListComponent,
+    PdgenerateComponent,
 
   ],
   imports: [
@@ -45,6 +44,9 @@ const routes: Routes = [
     MatFormFieldModule,
     BrowserAnimationsModule,
   ],
+  // schemas:[
+  //    CUSTOM_ELEMENTS_SCHEMA
+  // ],
   providers: [
     PdgenerateComponent,
     ConsultaAfiliadoService,

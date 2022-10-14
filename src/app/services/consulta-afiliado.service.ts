@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {Afiliado} from '../models/afiliado';
-import {Empresa} from '../models/empresa'
 import {Configs} from '../config/configs';
 import {TokenReq} from '../models/token-req';
 import {Observable,map} from 'rxjs';

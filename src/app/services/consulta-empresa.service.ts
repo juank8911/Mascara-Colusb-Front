@@ -29,15 +29,6 @@ headers = new HttpHeaders;
       })
     )
 
-    // .pipe(
-    //   map( emp => {
-    //   let  empresa = emp as Empresa
-    //     if(empresa.data.length>0) console.log(empresa);
-    //     return empresa
-    //   }
-    //
-    //   )
-    // )
   }
 
 }
