@@ -108,8 +108,9 @@ buscarAf(val:AfiliadoSh)
 {
   console.log(val)
   this.afiliadoServ.getAfiliadoApi(val).subscribe(data=>{
-    data.data[0].afiliado.numeroDocumento == val.numeroId?this.esBenef=false:this.esBenef=true,this.buscarNombreBenef(data,val.numeroId);
+    console.log(data);
     if(data.data.length>0){
+        data.data[0].afiliado.numeroDocumento == val.numeroId?this.esBenef=false:this.esBenef=true,this.buscarNombreBenef(data,val.numeroId);
       if(data.data[0].afiliado.afiliacion.fechaRetiro!="")
       {
 

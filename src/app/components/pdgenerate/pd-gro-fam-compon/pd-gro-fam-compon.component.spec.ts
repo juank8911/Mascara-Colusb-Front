@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PostsComponent } from './posts.component';
+import { PdGroFamComponComponent } from './pd-gro-fam-compon.component';
 
-describe('PostsComponent', () => {
-  let component: PostsComponent;
-  let fixture: ComponentFixture<PostsComponent>;
+describe('PdGroFamComponComponent', () => {
+  let component: PdGroFamComponComponent;
+  let fixture: ComponentFixture<PdGroFamComponComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PostsComponent ]
+      declarations: [ PdGroFamComponComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PostsComponent);
+    fixture = TestBed.createComponent(PdGroFamComponComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

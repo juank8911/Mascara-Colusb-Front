@@ -21,7 +21,7 @@
             <option Value="CO1T">Tarjeta identidad    </option>
             <option Value="CO1L">Registro civil       </option>
             <option Value="CO1P">Pasaporte            </option>
-            <option Value ="CO1N">Nit                 </option>
+            <option Value ="CO1N" disabled>Nit        </option>
             <option value="CO1D">Carnet Diplomático</option>
             <option value="CO1S">Sin identificación del exterior</option>
             <option value="CO1V">Permiso Especial de Permanencia</option>
@@ -42,7 +42,7 @@
       <div class="col-12">
       </div>
 <div class="col-12">
-      <button class="btn btn-primary btn-clor" type="submit" name="btnEn" id="btnEn" >
+      <button class="btn btn-primary btn-clor" type="submit"  name="btnEn" id="btnEn" >
         <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="buscar == true"></span>
         Buscar
       </button>
@@ -57,7 +57,7 @@
 </div>
 
 <div class="alert alert-warning mt-3" role="alert" *ngIf="esBenef==true">
-  El usuario {{nombreBene}} es beneficiario del afiliado {{nombreAfi}} con parentesco {{parentesco}}
+  El usuario {{nombreBene}} es beneficiario de {{nombreAfi}} con parentesco {{parentesco}}
 </div>
 
 <!-- *ngIf="buscar==true && afiliado == true" -->

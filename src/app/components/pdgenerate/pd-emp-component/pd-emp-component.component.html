@@ -1,0 +1,55 @@
+<div class="col-md-8" id="htmlData">
+  <div class="toolbar p-3 mb-5 bg-white rounded">
+    <a class="navbar-brand" href="#">
+      <img id="Header_PTPC-Logo" title="ir a: Inicio" src="./assets/images/logo-colsubsidioNew.svg" alt="Logo colsubsidio" >
+    </a>
+    <div class="progress mt-4">
+      <div class="progress-bar barCol" role="progressbar" aria-label="Basic example" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+  </div>
+  <br>
+  <div class="text-center fw-bold">
+    LA CAJA COLOMBIANA DE SUBSIDIO FAMILIAR
+  </div>
+  <br>
+  <div class="text-center fw-bold">
+    COLSUBSIDIO
+  </div>
+  <br><br><br><br>
+  <div class="text-center fw-bold">
+  HACE CONSTAR
+  </div>
+  <br><br>
+  <div class="m-5">
+  <strong>
+    1. Que la empresa {{empresa.data[0].contribuyente.nombre}} identificado(a) con NIT {{empresa.data[0].contribuyente.numeroDocumento
+}} se
+encuentra actualmente afiliada a esta Caja de Compensación Familiar.
+<br><br><br>
+2. Que la mencionada empresa ha efectuado aportes para el subsidio familiar, hasta el
+mes {{empresa.data[0].contribuyente.detalleAportantes[0].ultimoCicloPagado | date: 'YYYY/MM'}} Septiembre del año 2022.
+<br><br><br>
+Esta certificación NO es válida para afiliación a otra Caja de Compensación Familiar,
+dentro del Departamento de Cundinamarca.
+  </strong>
+  </div>
+  <br><br><br>
+  <div class="text-center">
+    poner firma <br>
+  <strong>JOSE LEONARDO GONZALEZ VEGA</strong>
+  </div>
+  <div class="text-center fs-7">
+    Jefe Sección Afiliación y Postulación
+  </div>
+
+  <div>
+  Bogota D.C. {{fechaHoy | date:'YYYY-MM-dd'}}
+  </div>
+
+  <div class="ft text-center">
+    footer
+    <p class="text-center pq"> Calle 26 # 25-50 Conmutador 742 0100 - Fax 340 2690 - A.A. 8573 Audioservicios Colsubsidio: 745 0999 Bogotá, D.C. www.colsubsidio.com</p>
+  </div>
+
+
+</div>

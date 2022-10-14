@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {Empresa} from '../../../models/empresa';
 import {ConsultaEmpresaService} from '../../../services/consulta-empresa.service';
+import {PdEmpComponentComponent} from '../../pdgenerate/pd-emp-component/pd-emp-component.component'
 
 @Component({
   selector: 'app-empresa-list',
@@ -11,7 +12,7 @@ export class EmpresaListComponent {
 
 @Input() empresa: Empresa;
 
-  constructor(private empresaService: ConsultaEmpresaService) { }
+  constructor(private empresaService: ConsultaEmpresaService, private pdEmp: PdEmpComponentComponent ) { }
 
 
 }
