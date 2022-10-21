@@ -94,14 +94,18 @@ export class FormConsultaComponent implements OnInit {
 buscarEmpres(numeroId:string)
 {
 
+  this.form.get('tipoCons')?.setValue("emp")
+  this.form.get('numeroId')?.setValue(numeroId);
   this.afEnco=false;
   this.emEnco=false;
   this.buscar=true;
   this.esBenef=false;
   this.value.tipoCons='emp';
   this.value.tipoId="CO1N";
-  this,this.value.numeroId=numeroId;
+  this.value.numeroId=numeroId;
   this.buscarEm(this.value);
+
+
 }
 
 buscarAf(val:AfiliadoSh)
@@ -110,11 +114,11 @@ buscarAf(val:AfiliadoSh)
   this.afiliadoServ.getAfiliadoApi(val).subscribe(data=>{
     console.log(data);
     if(data.data.length>0){
-        data.data[0].afiliado.numeroDocumento == val.numeroId?this.esBenef=false:this.esBenef=true,this.buscarNombreBenef(data,val.numeroId);
-      if(data.data[0].afiliado.afiliacion.fechaRetiro!="")
+          data.data[0].afiliado.numeroDocumento == val.numeroId?this.esBenef=false:this.esBenef=true,this.buscarNombreBenef(data,val.numeroId);
+      if(data.data[0].afiliado.fechaRetiro!="")
       {
 
-        let dRetiro = (new Date(formatDate(data.data[0].afiliado.afiliacion.fechaRetiro,'yyyy-MM-dd','en-Us')).getTime() - new Date(formatDate(Date(),'yyyy-MM-dd','en-Us')).getTime()/ 86400000)
+        let dRetiro = (new Date(formatDate(data.data[0].afiliado.fechaRetiro,'yyyy-MM-dd','en-Us')).getTime() - new Date(formatDate(Date(),'yyyy-MM-dd','en-Us')).getTime()/ 86400000)
         if(dRetiro>=51)this.retiro=true;
 const Toast = Swal.mixin({
 toast: true,
@@ -239,12 +243,12 @@ Toast.fire({
 
 buscarNombreBenef(data:Afiliado,numDoc:string)
 {
-  this.nombreAfi = data.data[0].afiliado.primerNombre+" "+data.data[0].afiliado.primerApellido;
+  this.nombreAfi = data.data[0].afiliado.nombreAl;
 let beneficiarios =  data.data[0].pacs;
 beneficiarios.map(benef=>{
   console.log(benef.numeroDocumento+" / "+numDoc)
-  if(benef.numeroDocumento == numDoc){this.nombreBene = benef.primerNombre+" "+benef.apellido;
-  this.parentesco =  benef.relacion.descripcion}
+  if(benef.numeroDocumento == numDoc){this.nombreBene = benef.bNombreAl;
+  this.parentesco =  benef.relacion}
 })
 }
 

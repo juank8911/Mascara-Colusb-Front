@@ -39,7 +39,6 @@ getAfiliadoApi(formsh:AfiliadoSh):Observable<Afiliado>
   return this.http.get(this.confi.urlAf+formsh.tipoId+"/"+formsh.numeroId,{headers:this.headers}).pipe(
     map( afil => {
     let  afiliado = afil as Afiliado
-      if(afiliado.data.length>0)afiliado = this.tranDatos.afiliadrTrnsfData(afiliado);
       return afiliado
     }
 
